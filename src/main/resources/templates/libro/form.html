@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${libro.idLibro} != null ? 'Editar Libro' : 'Registrar Libro'">Formulario Libro</title>
+</head>
+<body>
+<h1 th:text="${libro.idLibro} != null ? 'Editar Libro' : 'Registrar Libro'"></h1>
+<form th:action="@{/libros/guardar}" th:object="${libro}" method="post">
+  <input type="hidden" th:field="*{idLibro}" />
+  <label>Título:</label><input type="text" th:field="*{titulo}" /><br/>
+  <label>Autor:</label>
+  <select th:field="*{autor}">
+    <option th:each="a : ${listaAutores}" th:value="${a}" th:text="${a.nombre}"></option>
+  </select><br/>
+  <label>Categoría:</label>
+  <select th:field="*{categoria}">
+    <option th:each="c : ${listaCategorias}" th:value="${c}" th:text="${c.nombre}"></option>
+  </select><br/>
+  <label>Editorial:</label>
+  <select th:field="*{editorial}">
+    <option th:each="e : ${listaEditoriales}" th:value="${e}" th:text="${e.nombre}"></option>
+  </select><br/>
+  <label>Stock:</label><input type="number" th:field="*{stock}" /><br/>
+  <button type="submit">Guardar</button>
+  <a th:href="@{/libros}">Cancelar</a>
+</form>
+</body>
+</html>

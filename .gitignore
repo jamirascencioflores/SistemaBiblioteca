@@ -1,0 +1,49 @@
+### 📦 Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### 🧩 Spring / STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### 💡 IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+### 🧱 NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+/build/
+/target/
+/out/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### 🖋 VS Code ###
+.vscode/
+
+### 🗂 Archivos temporales / sistema ###
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+### 🚫 Archivos generados ###
+HELP.md

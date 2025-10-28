@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary">📚 Lista de Libros</h2>
+        <div>
+            <a th:href="@{/libro/reporte-pdf}" class="btn btn-outline-danger me-2">📄 Reporte PDF</a>
+            <a th:href="@{/libro/registrar}" class="btn btn-success">➕ Registrar nuevo libro</a>
+        </div>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-bordered table-hover bg-white">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Categoría</th>
+                <th>Editorial</th>
+                <th>Disponible</th>
+                <th>Prestado</th>
+                <th>Mantenimiento</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="libro : ${listaLibros}">
+                <td th:text="${libro.idLibro}"></td>
+                <td th:text="${libro.titulo}"></td>
+                <td th:text="${libro.autor.nombreCompleto}"></td>
+                <td th:text="${libro.categoria.nombreCategoria}"></td>
+                <td th:text="${libro.editorial.nombreEditorial}"></td>
+                <td th:text="${stockMap[libro.idLibro]?.disponible}"></td>
+                <td th:text="${stockMap[libro.idLibro]?.prestado ?: 0}"></td>
+                <td th:text="${stockMap[libro.idLibro]?.mantenimiento ?: 0}"></td>
+                <td th:text="${(stockMap[libro.idLibro]?.disponible ?: 0) + (stockMap[libro.idLibro]?.prestado ?: 0) + (stockMap[libro.idLibro]?.mantenimiento ?: 0)}"></td>
+                <td>
+                    <a th:href="@{/libro/editar/{id}(id=${libro.idLibro})}" class="btn btn-sm btn-primary me-1">✏️ Editar</a>
+                    <a th:href="@{/libro/eliminar/{id}(id=${libro.idLibro})}"
+                       onclick="return confirm('¿Estás seguro de eliminar este libro?');"
+                       class="btn btn-sm btn-danger">🗑️ Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a th:href="@{/}" class="btn btn-outline-secondary">⬅️ Volver al inicio</a>
+    </div>
+</div>
+
+</body>
+</html>
