@@ -80,8 +80,8 @@ src/
 ![Registro de préstamos](screenshots/prestamos.png)
 
 ---
-👨‍💻 Autor
----
+## 👨‍💻 Autor
+
 **Jamir Ascencio Flores**  
 📍 Lima, Perú
 
