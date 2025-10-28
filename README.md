@@ -67,8 +67,21 @@ src/
 └── test/
 ```
 ---
-## 👨‍💻 Autor
 
+## 🖼️ Capturas de pantalla
+
+### 🏠 Pantalla principal
+![Inicio del sistema](screenshots/inicio.png)
+
+### 📚 Módulo de Libros
+![Lista de libros](screenshots/lista_libros.png)
+
+### 💳 Módulo de Préstamos
+![Registro de préstamos](screenshots/prestamos.png)
+
+---
+👨‍💻 Autor
+---
 **Jamir Ascencio Flores**  
 📍 Lima, Perú
 
