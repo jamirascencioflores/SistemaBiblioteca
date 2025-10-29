@@ -57,18 +57,50 @@ Aplicación web desarrollada con **Spring Boot** y **MySQL**, que permite la ges
 src/
 ├── main/
 │   ├── java/com/jamir/biblioteca/
-│   │    ├── controller/
-│   │    ├── model/
-│   │    ├── repository/
-│   │    └── service/
+│   │    ├── controller/        # Controladores REST y web
+│   │    ├── model/             # Entidades JPA
+│   │    ├── repository/        # Repositorios (DAO)
+│   │    └── service/           # Lógica de negocio
 │   └── resources/
 │        ├── application.properties
-│        └── templates/
+│        ├── static/            # Archivos estáticos (CSS, JS, imágenes)
+│        ├── templates/         # Vistas Thymeleaf / JSP
+│        └── sql/               # Scripts SQL (estructura, datos y vistas)
+│             ├── schema.sql
+│             ├── data.sql
+│             └── biblioteca_vistas.sql
 └── test/
+
 ```
 ---
+### 📁 Scripts SQL incluidos
+| Archivo                   | Descripción     |
+|---------------------------|-----------------|
+| schema.sql                | Define la estructura de tablas y relaciones de la base de datos.       |
+| data.sql                  | Contiene datos iniciales de autores, categorías, editoriales y clientes.|
+| biblioteca_vistas.sql     | Incluye vistas SQL para reportes automáticos y análisis de préstamos. |
 
-## 🖼️ Capturas de pantalla
+---
+### 📊 Reportes automáticos (Vistas SQL)
+El sistema incluye vistas predefinidas para generar reportes automáticos y consultas estadísticas:
+
+| Vista                 | Descripción                                                      |
+|-----------------------|------------------------------------------------------------------|
+| vista_prestamos_detalle            | Muestra detalle de préstamos con cálculo de días y total a pagar. |
+| vista_stock_libros            | Reporte del stock disponible, prestado y en mantenimiento por libro.                                                             |
+| vista_libros_populares | Lista los libros más prestados ordenados por popularidad.        |
+
+Puedes ejecutarlas directamente desde MySQL:
+
+```bash
+SELECT * FROM vista_prestamos_detalle;
+SELECT * FROM vista_stock_libros;
+SELECT * FROM vista_libros_populares;
+```
+
+---
+
+### 🖼️ Capturas de pantalla
 
 ### 🏠 Pantalla principal
 ![Inicio del sistema](screenshots/inicio.png)
