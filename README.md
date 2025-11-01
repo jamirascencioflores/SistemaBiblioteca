@@ -37,7 +37,7 @@ Aplicación web desarrollada con **Spring Boot** y **MySQL**, que permite la ges
    ```bash
    CREATE DATABASE biblioteca_db;
 
-4. Configurar las credenciales en application.properties:
+4. Configurar las credenciales en ```application.properties:```
    ```bash
    spring.datasource.url=jdbc:mysql://localhost:3306/biblioteca_db
    spring.datasource.username=tu_usuario
